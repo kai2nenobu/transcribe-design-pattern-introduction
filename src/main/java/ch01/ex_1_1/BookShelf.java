@@ -1,20 +1,21 @@
 package ch01.ex_1_1;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BookShelf {
-    private Book[] books;
-    private int last = 0;
+    private List books;
     public BookShelf(int maxsize) {
-        this.books = new Book[maxsize];
+        this.books = new ArrayList(maxsize);
     }
     public Book getBookAt(int index) {
-        return books[index];
+        return (Book)books.get(index);
     }
     public void appendBook(Book book) {
-        this.books[last] = book;
-        last++;
+        books.add(book);
     }
     public int getLength() {
-        return last;
+        return books.size();
     }
     public Iterator iterator() {
         return new BookShelfIterator(this);
